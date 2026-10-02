@@ -1,7 +1,11 @@
+%%writefile app.py
+
 import streamlit as st
 import math
 
-st.title("Calculadora de Áreas y Perímetros")
+st.title("📐 Cálculo de Área y Perímetro")
+
+st.write("Selecciona una figura para calcular su área y perímetro.")
 
 figura = st.selectbox(
     "Selecciona una figura:",
@@ -9,62 +13,92 @@ figura = st.selectbox(
 )
 
 if figura == "Rectángulo":
-    base = st.number_input("Ingrese la base")
-    altura = st.number_input("Ingrese la altura")
+
+    st.header("▭ Rectángulo")
+
+    st.write("Área = base × altura")
+    st.write("Perímetro = 2 × (base + altura)")
+
+    base = st.number_input("Ingresa la base:", min_value=0.0)
+    altura = st.number_input("Ingresa la altura:", min_value=0.0)
 
     if st.button("Calcular"):
         area = base * altura
         perimetro = 2 * (base + altura)
 
-        st.write("Área:", area)
-        st.write("Perímetro:", perimetro)
+        st.success(f"Área: {area:.2f} unidades²")
+        st.success(f"Perímetro: {perimetro:.2f} unidades")
 
 
 elif figura == "Cuadrado":
-    lado = st.number_input("Ingrese el lado")
+
+    st.header("□ Cuadrado")
+
+    st.write("Área = lado²")
+    st.write("Perímetro = 4 × lado")
+
+    lado = st.number_input("Ingresa el lado:", min_value=0.0)
 
     if st.button("Calcular"):
-        area = lado * lado
+        area = lado ** 2
         perimetro = 4 * lado
 
-        st.write("Área:", area)
-        st.write("Perímetro:", perimetro)
+        st.success(f"Área: {area:.2f} unidades²")
+        st.success(f"Perímetro: {perimetro:.2f} unidades")
 
 
 elif figura == "Triángulo":
-    base = st.number_input("Ingrese la base")
-    altura = st.number_input("Ingrese la altura")
-    lado1 = st.number_input("Ingrese el lado 1")
-    lado2 = st.number_input("Ingrese el lado 2")
-    lado3 = st.number_input("Ingrese el lado 3")
+
+    st.header("△ Triángulo")
+
+    st.write("Área = (base × altura) / 2")
+    st.write("Perímetro = lado 1 + lado 2 + lado 3")
+
+    base = st.number_input("Ingresa la base:", min_value=0.0)
+    altura = st.number_input("Ingresa la altura:", min_value=0.0)
+    lado1 = st.number_input("Ingresa el lado 1:", min_value=0.0)
+    lado2 = st.number_input("Ingresa el lado 2:", min_value=0.0)
+    lado3 = st.number_input("Ingresa el lado 3:", min_value=0.0)
 
     if st.button("Calcular"):
         area = (base * altura) / 2
         perimetro = lado1 + lado2 + lado3
 
-        st.write("Área:", area)
-        st.write("Perímetro:", perimetro)
+        st.success(f"Área: {area:.2f} unidades²")
+        st.success(f"Perímetro: {perimetro:.2f} unidades")
 
 
 elif figura == "Círculo":
-    radio = st.number_input("Ingrese el radio")
+
+    st.header("○ Círculo")
+
+    st.write("Área = π × radio²")
+    st.write("Perímetro = 2 × π × radio")
+
+    radio = st.number_input("Ingresa el radio:", min_value=0.0)
 
     if st.button("Calcular"):
         area = math.pi * radio ** 2
         perimetro = 2 * math.pi * radio
 
-        st.write("Área:", area)
-        st.write("Perímetro:", perimetro)
+        st.success(f"Área: {area:.2f} unidades²")
+        st.success(f"Perímetro: {perimetro:.2f} unidades")
 
 
 elif figura == "Paralelogramo":
-    base = st.number_input("Ingrese la base")
-    altura = st.number_input("Ingrese la altura")
-    lado = st.number_input("Ingrese el lado")
+
+    st.header("▱ Paralelogramo")
+
+    st.write("Área = base × altura")
+    st.write("Perímetro = 2 × (base + lado)")
+
+    base = st.number_input("Ingresa la base:", min_value=0.0)
+    altura = st.number_input("Ingresa la altura:", min_value=0.0)
+    lado = st.number_input("Ingresa el lado:", min_value=0.0)
 
     if st.button("Calcular"):
         area = base * altura
         perimetro = 2 * (base + lado)
 
-        st.write("Área:", area)
-        st.write("Perímetro:", perimetro)
+        st.success(f"Área: {area:.2f} unidades²")
+        st.success(f"Perímetro: {perimetro:.2f} unidades")
