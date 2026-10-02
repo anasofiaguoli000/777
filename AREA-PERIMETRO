@@ -1,0 +1,70 @@
+import streamlit as st
+import math
+
+st.title("Calculadora de Áreas y Perímetros")
+
+figura = st.selectbox(
+    "Selecciona una figura:",
+    ["Rectángulo", "Cuadrado", "Triángulo", "Círculo", "Paralelogramo"]
+)
+
+if figura == "Rectángulo":
+    base = st.number_input("Ingrese la base")
+    altura = st.number_input("Ingrese la altura")
+
+    if st.button("Calcular"):
+        area = base * altura
+        perimetro = 2 * (base + altura)
+
+        st.write("Área:", area)
+        st.write("Perímetro:", perimetro)
+
+
+elif figura == "Cuadrado":
+    lado = st.number_input("Ingrese el lado")
+
+    if st.button("Calcular"):
+        area = lado * lado
+        perimetro = 4 * lado
+
+        st.write("Área:", area)
+        st.write("Perímetro:", perimetro)
+
+
+elif figura == "Triángulo":
+    base = st.number_input("Ingrese la base")
+    altura = st.number_input("Ingrese la altura")
+    lado1 = st.number_input("Ingrese el lado 1")
+    lado2 = st.number_input("Ingrese el lado 2")
+    lado3 = st.number_input("Ingrese el lado 3")
+
+    if st.button("Calcular"):
+        area = (base * altura) / 2
+        perimetro = lado1 + lado2 + lado3
+
+        st.write("Área:", area)
+        st.write("Perímetro:", perimetro)
+
+
+elif figura == "Círculo":
+    radio = st.number_input("Ingrese el radio")
+
+    if st.button("Calcular"):
+        area = math.pi * radio ** 2
+        perimetro = 2 * math.pi * radio
+
+        st.write("Área:", area)
+        st.write("Perímetro:", perimetro)
+
+
+elif figura == "Paralelogramo":
+    base = st.number_input("Ingrese la base")
+    altura = st.number_input("Ingrese la altura")
+    lado = st.number_input("Ingrese el lado")
+
+    if st.button("Calcular"):
+        area = base * altura
+        perimetro = 2 * (base + lado)
+
+        st.write("Área:", area)
+        st.write("Perímetro:", perimetro)
